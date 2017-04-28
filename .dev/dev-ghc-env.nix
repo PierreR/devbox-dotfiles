@@ -1,9 +1,8 @@
 let
   pkgs = import <nixpkgs> {};
-  pinned = import .config/nixpkgs/pin.nix;
+  pinned = import ~/.config/nixpkgs/pin.nix;
 
   hpkgs = pinned.haskellPackages;
-  dhall = hpkgs.dhall_git;
   protolude = hpkgs.protolude_git;
   ghc-env = hpkgs.ghcWithPackages (p: with p; [
       aeson
@@ -14,13 +13,15 @@ let
       base
       base16-bytestring
       bytestring
+      cassava
       case-insensitive
+      configurator # postgrest
       containers
       cryptonite
       dhall
       deepseq
       directory
-      either
+      either #postgrest
       exceptions
       filecache
       foldl
@@ -28,12 +29,20 @@ let
       ghc-prim
       Glob
       hashable
+      hasql
+      hasql-pool
+      hasql-transaction
+      heredoc #postgrest
       http-api-data
       http-client
-      hruby
+      hruby # language-puppet
       hslogger
       hspec
+      HTTP
+      http-types #postgrest
       intero
+      interpolatedstring-perl6 # postgrest
+      jwt # postgrest
       lens
       lens-aeson
       managed
@@ -54,9 +63,12 @@ let
       pcre-utils
       process
       protolude_git
+      Ranged-sets
       random
       raw-strings-qq
       regex-pcre-builtin
+      regex-tdfa #postgrest
+      safe
       scientific
       semigroups
       servant
@@ -65,15 +77,23 @@ let
       split
       stm
       strict-base-types
+      swagger2
       text
       time
       transformers
+      trifecta
       turtle
       unix
       unordered-containers
       vector
+      wai
+      wai-cors # postgrest
+      wai-extra # postgrest
+      wai-middleware-static # postgrest
+      warp
+      wreq
+      wizards
       yaml
-      trifecta
     ]);
 in pkgs.buildEnv {
   name = "dev-ghc-env";
