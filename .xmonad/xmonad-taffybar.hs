@@ -2,23 +2,28 @@
 -- xmonad config file.
 --
 
-import qualified Data.Map                     as M
+import qualified Data.Map                         as M
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
+import           System.Taffybar.Hooks.PagerHints (pagerHints)
+
 import           XMonad
-import qualified XMonad.Actions.GridSelect as GridSelect
 import           XMonad.Actions.CycleWS
+import qualified XMonad.Actions.GridSelect        as GridSelect
 import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
-import           XMonad.Hooks.UrgencyHook
-import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.SetWMName
+import           XMonad.Hooks.UrgencyHook
+import           XMonad.Layout.Named
 import           XMonad.Layout.ZoomRow
-import           XMonad.Util.SpawnOnce
 import           XMonad.Util.Cursor
-import qualified XMonad.StackSet              as W
+import           XMonad.Util.SpawnOnce
+
+
+import qualified XMonad.StackSet                  as W
 
 -- Some doc
 -- .|. is xmonad specific : it is a bitwise "or"
@@ -119,7 +124,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 urgentConfig :: UrgencyConfig
 urgentConfig = UrgencyConfig { suppressWhen = Focused, remindWhen = Dont }
 
-myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList 
+myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((modm, button1), \w -> focus w >> mouseMoveWindow w
@@ -140,13 +145,34 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = Mirror zoomRow ||| Mirror tiled ||| zoomRow ||| Full ||| tiled
+myLayout = horiz ||| horiz_tiled ||| vert ||| full ||| vert_tiled
   where
-     -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+     -- vert_tiled = named "►" $ tiled
+     vert_tiled = named "▷" $ tiled
+     -- horiz_tiled = named "▼" $ Mirror $ tiled
+     horiz_tiled = named "▽" $ Mirror $ tiled
 
-     -- The default number of windows in the master pane
-     nmaster = 1
+     -- full    = named "▣" Full
+     -- full    = named "■" Full
+     full    = named "□" Full
+
+     -- horiz = named "≡" $ Mirror zoomRow
+     -- horiz = named "═" $ Mirror zoomRow
+     -- horiz = named "━" $ Mirror zoomRow
+     -- horiz = named "▬" $ Mirror zoomRow
+     -- horiz = named "─" $ Mirror zoomRow
+     horiz = named "-" $ Mirror zoomRow
+
+     -- vert = named "Ⅲ" $ zoomRow
+     -- vert = named "||" $ zoomRow
+     -- vert = named "┃┃" $ zoomRow
+     -- vert = named "┇" $ zoomRow
+     -- vert = named "▮" $ zoomRow
+     -- vert = named "┃" $ zoomRow
+     -- vert = named "│" $ zoomRow
+     vert = named "|" $ zoomRow
+     tiled   = Tall nmaster delta ratio
+     nmaster = 1 --  default number of windows in the master pane
 
      -- Default proportion of screen occupied by master pane
      ratio   = 1/2
@@ -180,11 +206,8 @@ azertyKeys conf@XConfig {modMask = modm} = M.fromList $
           (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 main =
-  xmonad =<< statusBar "taffybar" def toggleStrutsKey (ewmh $ uhook myConfig)
+  xmonad $ docks $  ewmh $ pagerHints $ myConfig
   where
-    uhook = withUrgencyHookC NoUrgencyHook urgentConfig
-    toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
     myConfig  = def
       { terminal           = "urxvtc"
       , focusFollowsMouse  = False
@@ -196,8 +219,8 @@ main =
       , keys               = \c -> azertyKeys c `M.union` myKeys c
       , mouseBindings      = myMouseBindings
       , layoutHook         = avoidStruts myLayout
-      , handleEventHook    = fullscreenEventHook <+> ewmhDesktopsEventHook
+      , handleEventHook    = handleEventHook def <+> fullscreenEventHook
       , startupHook        = myStartupHook <+> ewmhDesktopsStartup
-      , manageHook         = manageHook def <+> manageDocks <+> myManageHook
-      , logHook            = ewmhDesktopsLogHook 
+      , manageHook         = manageDocks <+> myManageHook
+      , logHook            = ewmhDesktopsLogHook
       }
