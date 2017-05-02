@@ -148,29 +148,35 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 myLayout = horiz ||| horiz_tiled ||| vert ||| full ||| vert_tiled
   where
      -- vert_tiled = named "►" $ tiled
-     vert_tiled = named "▷" $ tiled
+     -- vert_tiled = named ">" $ tiled
+     vert_tiled = named "⊢" $ tiled
+     -- vert_tiled = named "├" $ tiled
+     -- vert_tiled = named "▷" $ tiled
+     
      -- horiz_tiled = named "▼" $ Mirror $ tiled
-     horiz_tiled = named "▽" $ Mirror $ tiled
+     -- horiz_tiled = named "┬" $ Mirror $ tiled
+     -- horiz_tiled = named "v" $ Mirror $ tiled
+     horiz_tiled = named "⊤" $ Mirror $ tiled
+     --horiz_tiled = named "▽" $ Mirror $ tiled
 
      -- full    = named "▣" Full
      -- full    = named "■" Full
      full    = named "□" Full
 
-     -- horiz = named "≡" $ Mirror zoomRow
      -- horiz = named "═" $ Mirror zoomRow
      -- horiz = named "━" $ Mirror zoomRow
      -- horiz = named "▬" $ Mirror zoomRow
      -- horiz = named "─" $ Mirror zoomRow
-     horiz = named "-" $ Mirror zoomRow
+     horiz = named "≡" $ Mirror zoomRow
+     --horiz = named "-" $ Mirror zoomRow
 
-     -- vert = named "Ⅲ" $ zoomRow
      -- vert = named "||" $ zoomRow
-     -- vert = named "┃┃" $ zoomRow
-     -- vert = named "┇" $ zoomRow
      -- vert = named "▮" $ zoomRow
      -- vert = named "┃" $ zoomRow
      -- vert = named "│" $ zoomRow
-     vert = named "|" $ zoomRow
+     -- vert = named "|" $ zoomRow
+     vert = named "∥" $ zoomRow
+
      tiled   = Tall nmaster delta ratio
      nmaster = 1 --  default number of windows in the master pane
 
