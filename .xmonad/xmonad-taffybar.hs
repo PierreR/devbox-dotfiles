@@ -147,44 +147,16 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 --
 myLayout = horiz ||| horiz_tiled ||| vert ||| full ||| vert_tiled
   where
-     -- vert_tiled = named "►" $ tiled
-     -- vert_tiled = named ">" $ tiled
      vert_tiled = named "⊢" $ tiled
-     -- vert_tiled = named "├" $ tiled
-     -- vert_tiled = named "▷" $ tiled
-     
-     -- horiz_tiled = named "▼" $ Mirror $ tiled
-     -- horiz_tiled = named "┬" $ Mirror $ tiled
-     -- horiz_tiled = named "v" $ Mirror $ tiled
      horiz_tiled = named "⊤" $ Mirror $ tiled
-     --horiz_tiled = named "▽" $ Mirror $ tiled
-
-     -- full    = named "▣" Full
-     -- full    = named "■" Full
      full    = named "□" Full
-
-     -- horiz = named "═" $ Mirror zoomRow
-     -- horiz = named "━" $ Mirror zoomRow
-     -- horiz = named "▬" $ Mirror zoomRow
-     -- horiz = named "─" $ Mirror zoomRow
      horiz = named "≡" $ Mirror zoomRow
-     --horiz = named "-" $ Mirror zoomRow
-
-     -- vert = named "||" $ zoomRow
-     -- vert = named "▮" $ zoomRow
-     -- vert = named "┃" $ zoomRow
-     -- vert = named "│" $ zoomRow
-     -- vert = named "|" $ zoomRow
      vert = named "∥" $ zoomRow
-
      tiled   = Tall nmaster delta ratio
+
      nmaster = 1 --  default number of windows in the master pane
-
-     -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
-
-     -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
+     ratio   = 1/2 -- default proportion of screen occupied by master pane
+     delta   = 3/100 -- percent of screen to increment by when resizing panes
 
 ------------------------------------------------------------------------
 -- Startup hook
