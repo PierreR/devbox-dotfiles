@@ -61,7 +61,9 @@ let
       parsec
       parsers
       pcre-utils
+      postgrest
       process
+      protolude
       protolude_git
       Ranged-sets
       random
@@ -76,6 +78,7 @@ let
       shake
       split
       stm
+      stm-containers
       strict-base-types
       swagger2
       text
@@ -90,7 +93,9 @@ let
       wai-cors # postgrest
       wai-extra # postgrest
       wai-middleware-static # postgrest
+      wai-websockets
       warp
+      websockets
       wreq
       wizards
       yaml
