@@ -188,7 +188,7 @@ main =
   xmonad $ docks $  ewmh $ pagerHints $ myConfig
   where
     myConfig  = def
-      { terminal           = "urxvtc"
+      { terminal           = "termite"
       , focusFollowsMouse  = False
       , borderWidth        = 1
       , modMask            = mod4Mask
