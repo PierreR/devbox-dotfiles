@@ -174,6 +174,7 @@ myManageHook = composeOne
   [ isDialog -?> doCenterFloat
   , title =? "Eclipse" -?> doFloat
   , className =? "Emacs" -?> doShift "1"
+  , className =? "Google-chrome" -?> doShift "9"
   , isFullscreen -?> doFullFloat
   ] <+> composeAll [ resource =? "albert" --> doCenterFloat]
 
