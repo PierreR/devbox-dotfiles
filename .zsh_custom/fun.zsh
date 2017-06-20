@@ -1,5 +1,5 @@
 function sshi () {
-	ssh -A -i ~/.ssh/alhazen_rsa alhazen@$1
+	TERM=xterm ssh -A -i ~/.ssh/alhazen_rsa alhazen@$1
 }
 
 function ssrc () {
