@@ -8,14 +8,17 @@ let
       aeson
       ansi-wl-pprint
       array
+      ascii-progress
       async
       attoparsec
       base
       base16-bytestring
+      brick
       bytestring
       cassava
       case-insensitive
       configurator # postgrest
+      concurrent-output
       containers
       cryptonite
       dhall
@@ -24,6 +27,7 @@ let
       either #postgrest
       exceptions
       filecache
+      fsnotify
       foldl
       formatting
       ghc-prim
@@ -44,6 +48,7 @@ let
       interpolatedstring-perl6 # postgrest
       jwt # postgrest
       lens
+      lens_
       lens-aeson
       managed
       megaparsec
@@ -52,6 +57,7 @@ let
       microlens-mtl
       mtl
       mtl-compat
+      monad-logger
       neat-interpolation
       operational
       optparse-applicative
@@ -88,7 +94,9 @@ let
       turtle
       unix
       unordered-containers
+      vault
       vector
+      vty
       wai
       wai-cors # postgrest
       wai-extra # postgrest
