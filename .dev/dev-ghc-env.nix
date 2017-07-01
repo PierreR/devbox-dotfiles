@@ -42,8 +42,10 @@ let
       hruby # language-puppet
       hslogger
       hspec
+      hspec-megaparsec
       HTTP
       http-types #postgrest
+      HUnit
       intero
       interpolatedstring-perl6 # postgrest
       jwt # postgrest
@@ -87,6 +89,7 @@ let
       stm-containers
       strict-base-types
       swagger2
+      temporary
       text
       time
       transformers

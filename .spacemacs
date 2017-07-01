@@ -30,7 +30,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(sql
      vimscript
      asciidoc
      yaml
@@ -307,6 +307,8 @@ you should place your code here."
    erc-hide-list '("JOIN" "PART" "QUIT")
    erc-prompt-for-nickserv-password nil
 
+   font-lock-maximum-decoration t
+
    haskell-compile-cabal-build-command "stack install --fast"
 
    org-bullets-bullet-list '("■" "◆" "▲" "▶")
@@ -329,6 +331,9 @@ you should place your code here."
 
   )
 
+  ;; (set-face-foreground 'font-lock-string-face "DimGrey")
+  ;; (set-face-foreground 'font-lock-string-face "grey22")
+  (set-face-foreground 'font-lock-string-face "grey53")
   (global-set-key [f5] 'browse-url-of-buffer)
   (global-unset-key (kbd "C-SPC")) ; used by Albert
   (global-set-key (kbd "C-S-SPC") 'set-mark-command)
@@ -337,7 +342,13 @@ you should place your code here."
   (add-hook 'focus-out-hook 'save-buffer)
   (add-hook 'nixos-mode-hook (lambda () (setq indent-tabs-mode nil
                                               tab-width 2)))
-  (add-hook 'haskell-mode-hook (lambda () (setq evil-auto-indent nil )))
+  (add-hook 'haskell-mode-hook (lambda ()
+                                 (setq evil-auto-indent nil )
+                                 (set-face-foreground 'haskell-keyword-face "firebrick")
+                                 (set-face-foreground 'haskell-type-face "DarkSlateBlue")
+                                 ;; (set-face-foreground 'haskell-constructor-face "OliveDrab")
+                                 (set-face-foreground 'haskell-constructor-face "DarkSeaGreen4")
+                                 ))
 
   (spacemacs/set-leader-keys "SPC" 'avy-goto-char-timer)
   (spacemacs/set-leader-keys-for-major-mode 'haskell-mode "t" 'intero-type-at)
@@ -350,4 +361,25 @@ you should place your code here."
   (add-hook 'find-file-hook (lambda ()
                               (add-to-list 'recentf-exclude "\\.stack-work\\'")
                               (add-to-list 'recentf-exclude "\\tmp\\")))
+)
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol t)
+ '(package-selected-packages
+   (quote
+    (sql-indent org-brain evil-org zeal-at-point xterm-color ws-butler winum which-key web-mode volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection spaceline powerline smeargle slim-mode shell-pop scss-mode sass-mode salt-mode mmm-jinja2 yaml-mode rvm ruby-tools ruby-test-mode ruby-refactor rubocop rspec-mode robe restart-emacs rbenv ranger rake rainbow-delimiters puppet-mode pug-mode popwin persp-mode pcre2el password-generator paradox spinner orgit org-projectile org-present org-pomodoro alert log4e gntp org-download org-bullets open-junk-file nix-mode neotree multi-term move-text mmm-mode minitest markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode intero info+ indent-guide impatient-mode simple-httpd hydra hungry-delete htmlize hlint-refactor hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-purpose window-purpose imenu-list helm-projectile helm-nixos-options helm-mode-manager helm-make projectile helm-hoogle helm-gitignore request helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets haml-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist org-plus-contrib evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit with-editor evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks emmet-mode elisp-slime-nav editorconfig dumb-jump dockerfile-mode docker json-mode tablist magit-popup docker-tramp json-snatcher json-reformat diminish diff-hl define-word dante flycheck pkg-info epl dactyl-mode company-web web-completion-data company-statistics company-nixos-options nixos-options company-ghci company-ghc ghc haskell-mode company-cabal company column-enforce-mode cmm-mode clean-aindent-mode chruby bundler inf-ruby browse-at-remote f s bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed dash aggressive-indent adoc-mode markup-faces adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 )
