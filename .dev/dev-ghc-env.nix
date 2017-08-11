@@ -42,7 +42,7 @@ let
       hruby # language-puppet
       hslogger
       hspec
-      hspec-megaparsec
+      hspec-megaparsec_1_0_0
       HTTP
       http-types #postgrest
       HUnit
@@ -50,10 +50,9 @@ let
       interpolatedstring-perl6 # postgrest
       jwt # postgrest
       lens
-      lens_
       lens-aeson
       managed
-      megaparsec
+      megaparsec_6_0_2
       memory
       microlens
       microlens-mtl
