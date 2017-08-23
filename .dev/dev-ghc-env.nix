@@ -3,7 +3,6 @@ let
   pinned = import ~/.config/nixpkgs/pin.nix;
 
   hpkgs = pinned.haskellPackages;
-  protolude = hpkgs.protolude_git;
   ghc-env = hpkgs.ghcWithPackages (p: with p; [
       aeson
       ansi-wl-pprint
@@ -52,7 +51,7 @@ let
       lens
       lens-aeson
       managed
-      megaparsec_6_0_2
+      megaparsec_6_1_1
       memory
       microlens
       microlens-mtl
@@ -70,8 +69,7 @@ let
       pcre-utils
       postgrest
       process
-      protolude
-      protolude_git
+      protolude_0_2
       Ranged-sets
       random
       raw-strings-qq
