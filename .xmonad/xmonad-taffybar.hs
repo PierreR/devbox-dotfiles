@@ -37,7 +37,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch README
-    , ((0, xK_F2 ), spawn "google-chrome-stable file:///home/vagrant/.local/share/doc/devbox.html#_minimal_cheat_sheet")
+    , ((0, xK_F2 ), spawn "xdg-open file:///home/vagrant/.local/share/doc/devbox.html#_minimal_cheat_sheet")
     -- NixOS manual
     , ((modm, xK_F2 ), spawn "nixos-help")
 
