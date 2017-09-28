@@ -16,14 +16,14 @@ let
       bytestring
       cassava
       case-insensitive
-      configurator # postgrest
+      configurator # postgrest-ws
       concurrent-output
       containers
       cryptonite
       dhall
       deepseq
       directory
-      either #postgrest
+      # either #postgrest
       exceptions
       filecache
       fsnotify
@@ -51,7 +51,7 @@ let
       lens
       lens-aeson
       managed
-      megaparsec_6_1_1
+      megaparsec_6_2_0
       memory
       microlens
       microlens-mtl
@@ -67,7 +67,7 @@ let
       parsec
       parsers
       pcre-utils
-      postgrest
+      # postgrest
       process
       protolude_0_2
       Ranged-sets
@@ -75,6 +75,7 @@ let
       raw-strings-qq
       regex-pcre-builtin
       regex-tdfa #postgrest
+      retry # intero
       safe
       scientific
       semigroups
