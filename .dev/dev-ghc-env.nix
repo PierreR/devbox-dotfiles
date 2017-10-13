@@ -17,6 +17,7 @@ let
       cassava
       case-insensitive
       configurator # postgrest-ws
+      configurator-ng # postgrest
       concurrent-output
       containers
       cryptonite
@@ -41,13 +42,16 @@ let
       hruby # language-puppet
       hslogger
       hspec
+      hspec-wai # postgrest-ws test
+      hspec-wai-json # postgrest-ws test
+      hjsonschema # postgrest test
       hspec-megaparsec_1_0_0
       HTTP
       http-types #postgrest
       HUnit
       intero
       interpolatedstring-perl6 # postgrest
-      jwt # postgrest
+      jose # postgrest
       lens
       lens-aeson
       managed
@@ -67,6 +71,7 @@ let
       parsec
       parsers
       pcre-utils
+      postgrest-ws
       # postgrest
       process
       protolude_0_2
