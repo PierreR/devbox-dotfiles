@@ -112,6 +112,8 @@ let
       websockets
       wreq
       wizards
+      xmonad
+      xmonad-contrib
       yaml
     ]);
 in pkgs.buildEnv {
