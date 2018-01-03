@@ -45,7 +45,7 @@ let
       hspec-wai # postgrest-ws test
       hspec-wai-json # postgrest-ws test
       hjsonschema # postgrest test
-      hspec-megaparsec_1_0_0
+      hspec-megaparsec
       HTTP
       http-types #postgrest
       HUnit
@@ -55,7 +55,7 @@ let
       lens
       lens-aeson
       managed
-      megaparsec_6_2_0
+      megaparsec
       memory
       microlens
       microlens-mtl
@@ -71,10 +71,10 @@ let
       parsec
       parsers
       pcre-utils
-      postgrest-ws
+      # postgrest-ws
       # postgrest
       process
-      protolude_0_2
+      protolude
       Ranged-sets
       random
       raw-strings-qq
