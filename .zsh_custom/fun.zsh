@@ -1,4 +1,7 @@
 function sshi () {
+	  TERM=xterm ssh -A -i ~/.ssh/cirb_rsa pradermecker@$1
+}
+function sshahazen () {
 	TERM=xterm ssh -A -i ~/.ssh/alhazen_rsa alhazen@$1
 }
 
