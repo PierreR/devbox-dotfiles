@@ -7,20 +7,19 @@
 
 .Contents {
 	border-radius: 5px;
-	padding: 3px 1px 3px 6px;
+	padding: 1px 1px 1px 6px;
 }
 
 .Active .Contents, .Visible .Contents {
-	  background-color: @active-window-color;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @yellow;
 }
 
 .Active .WorkspaceLabel {
     font-weight: bolder;
 }
 
-/* .InnerPad { */
-/* 	padding: 4px; */
-/* } */
 
 .WorkspaceLabel {
 	padding-right: 3px;
@@ -34,7 +33,7 @@
 
 .IconContainer.Active {
 	transition: background-color .5s;
-	background-color: @active-window-color;
+	background-color: @bg-color;
 }
 
 .IconContainer.Urgent {
