@@ -1,0 +1,70 @@
+@define-color bg-color #473343;
+@define-color bg-tone #1E1E20;
+@define-color active-window-color #8a575e;
+@define-color urgent-window-color #473343;
+@define-color font-color #D9CB9E;
+@define-color yellow #bcdb95;
+
+.Contents {
+	border-radius: 5px;
+	padding: 3px 1px 3px 6px;
+}
+
+.Active .Contents, .Visible .Contents {
+	  background-color: @active-window-color;
+}
+
+.Active .WorkspaceLabel {
+    font-weight: bolder;
+}
+
+/* .InnerPad { */
+/* 	padding: 4px; */
+/* } */
+
+.WorkspaceLabel {
+	padding-right: 3px;
+	padding-left: 2px;
+}
+
+.IconContainer {
+	transition: background-color .5s;
+	border-radius: 5px;
+}
+
+.IconContainer.Active {
+	transition: background-color .5s;
+	background-color: @active-window-color;
+}
+
+.IconContainer.Urgent {
+	transition: background-color .5s;
+	background-color: @urgent-window-color;
+}
+
+.IconContainer.Minimized .IconImage {
+	transition: opacity .5s;
+	opacity: .2;
+}
+
+.IconImage {
+	transition: opacity .5s;
+	padding: 2px;
+	opacity: 1;
+}
+
+#WindowSwitcher {
+	background-color: @bg-color;
+}
+
+.Taffybar {
+	background-color: @bg-color;
+	border-radius: 5px;
+}
+
+.Taffybar * {
+	font-family: "DejaVu Sans Mono", sans-serif;
+  font-weight: normal;
+	font-size: 10pt;
+	color: @font-color;
+}
