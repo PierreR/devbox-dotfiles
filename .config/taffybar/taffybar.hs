@@ -1,7 +1,9 @@
 import System.Taffybar
 
 import System.Taffybar.Systray
+import System.Taffybar.WorkspaceHUD
 import System.Taffybar.TaffyPager
+import System.Taffybar.WorkspaceHUD
 import System.Taffybar.NetMonitor
 import System.Taffybar.SimpleClock
 import System.Taffybar.FreedesktopNotifications
@@ -32,7 +34,8 @@ main = do
                                   , graphLabel = Just "cpu"
                                   }
   let clock = textClockNew Nothing "<span fgcolor='orange'>%b %_d %H:%M</span>" 1
-      pager = taffyPagerNew defaultPagerConfig { widgetSep = " " }
+      pager = taffyPagerHUDNew (defaultPagerConfig {widgetSep = " " }) (defaultWorkspaceHUDConfig { borderWidth = 0, showWorkspaceFn = hideEmpty})
+      -- pager = taffyPagerNew defaultPagerConfig { widgetSep = " " }
       note = notifyAreaNew defaultNotificationConfig 
       netw = netMonitorNew 2 "enp0s3"
       -- american only
