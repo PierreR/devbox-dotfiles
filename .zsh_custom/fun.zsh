@@ -1,12 +1,5 @@
-function sshi () {
-	  TERM=xterm ssh -A -i ~/.ssh/cirb_rsa pradermecker@$1
-}
-function sshahazen () {
-	TERM=xterm ssh -A -i ~/.ssh/alhazen_rsa alhazen@$1
-}
-
 function ssrc () {
-  git rev-list --all | GIT_PAGER=less xargs git grep "$1"
+    git rev-list --all | GIT_PAGER=less xargs git grep "$1"
 }
 
 function updateNixpkgs () {
