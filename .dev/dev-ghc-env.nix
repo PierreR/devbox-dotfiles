@@ -17,7 +17,7 @@ let
       cassava
       case-insensitive
       configurator # postgrest-ws
-      configurator-ng # postgrest
+      # configurator-ng # postgrest
       concurrent-output
       containers
       cryptonite
@@ -33,10 +33,10 @@ let
       ghc-prim
       Glob
       hashable
-      hasql
-      hasql-pool
-      hasql-transaction
-      heredoc #postgrest
+      #hasql
+      #hasql-pool
+      #hasql-transaction
+      #heredoc #postgrest
       http-api-data
       http-client
       hruby # language-puppet
@@ -44,7 +44,7 @@ let
       hspec
       hspec-wai # postgrest-ws test
       hspec-wai-json # postgrest-ws test
-      hjsonschema # postgrest test
+      # hjsonschema # postgrest test
       hspec-megaparsec
       HTTP
       http-types #postgrest
@@ -89,9 +89,13 @@ let
       shake
       split
       stm
-      stm-containers
+      # stm-containers
       strict-base-types
       swagger2
+      tasty
+      tasty-discover
+      tasty-golden
+      tasty-hunit
       temporary
       text
       time
