@@ -16,6 +16,7 @@ let
       bytestring
       cassava
       case-insensitive
+      classy-prelude
       configurator # postgrest-ws
       # configurator-ng # postgrest
       concurrent-output
@@ -23,6 +24,7 @@ let
       cryptonite
       dhall
       deepseq
+      default
       directory
       # either #postgrest
       exceptions
@@ -46,6 +48,7 @@ let
       hspec-wai-json # postgrest-ws test
       # hjsonschema # postgrest test
       hspec-megaparsec
+      http-conduit
       HTTP
       http-types #postgrest
       HUnit
@@ -80,6 +83,7 @@ let
       raw-strings-qq
       regex-pcre-builtin
       regex-tdfa #postgrest
+      req
       retry # intero
       safe
       scientific
