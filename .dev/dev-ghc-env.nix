@@ -1,8 +1,7 @@
 let
-  pkgs = import <nixpkgs> {};
-  pinned = import ~/.config/nixpkgs/pin.nix;
+  pkgs = import ~/.config/nixpkgs/pin.nix;
 
-  hpkgs = pinned.haskellPackages;
+  hpkgs = pkgs.haskellPackages;
   ghc-env = hpkgs.ghcWithPackages (p: with p; [
       aeson
       ansi-wl-pprint
@@ -24,7 +23,7 @@ let
       cryptonite
       dhall
       deepseq
-      default
+      data-default-class
       directory
       # either #postgrest
       exceptions
@@ -33,6 +32,7 @@ let
       foldl
       formatting
       ghc-prim
+      ghc-paths
       Glob
       hashable
       #hasql
@@ -130,5 +130,6 @@ in pkgs.buildEnv {
       ghc-env
       pkgs.haskellPackages.cabal-install
       pkgs.haskellPackages.stack
+      pkgs.haskellPackages.intero
     ];
 }
