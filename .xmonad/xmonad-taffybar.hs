@@ -6,7 +6,7 @@ import qualified Data.Map                         as M
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
-import           System.Taffybar.Hooks.PagerHints (pagerHints)
+import           System.Taffybar.Support.PagerHints (pagerHints)
 
 import           XMonad
 import           XMonad.Actions.CycleWS
