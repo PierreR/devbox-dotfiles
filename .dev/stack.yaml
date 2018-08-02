@@ -1,10 +1,12 @@
-resolver: ghc-8.0.2
-
+resolver: lts-11.19
 nix:
-  enable: false
+  enable: true
+  packages:
+    - zlib.dev
+    - zlib.out
+    - gcc
+    - ruby
+    - pkgconfig
+
 system-ghc: true
-
 skip-ghc-check: true
-
-packages:
-- '.'
