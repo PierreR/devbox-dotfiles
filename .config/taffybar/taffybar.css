@@ -19,6 +19,7 @@
 	all: unset;
 
 	font-family: "DejaVu Sans Mono", sans-serif;
+	/* font-family: "Noto Sans", sans-serif; */
 	font-size: 10pt;
 	color: @font-color;
 }
@@ -29,15 +30,19 @@
 }
 
 .inner-pad {
+	/* padding-bottom: 5px; */
+	/* padding-top: 5px; */
+	/* padding-left: 2px; */
+	/* padding-right: 2px; */
 	padding-bottom: 1px;
-	padding-top: 0px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-top: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
 }
 
 .contents {
-	padding-bottom: 0px;
-	padding-top: 0px;
+	padding-bottom: 4px;
+	padding-top: 4px;
 	padding-right: 2px;
 	padding-left: 2px;
 	transition: background-color .5s;
@@ -47,9 +52,10 @@
 /* Workspaces styling */
 
 .workspace-label {
-	padding-right: 4px;
-	padding-left: 3px;
-	font-size: 10pt;
+	padding-right: 3px;
+	padding-left: 2px;
+	/* font-size: 12pt; */
+	font-size: 11pt;
 }
 
 .active .contents {
@@ -74,7 +80,7 @@
 }
 
 .window-icon-container.active {
-	box-shadow: inset 0 -3px @white;
+	box-shadow: inset 0 -2px @white;
 }
 
 .window-icon-container.urgent {
@@ -103,7 +109,7 @@ button {
 }
 
 button:checked, button:hover .Contents:hover {
-	box-shadow: inset 0 -3px @taffy-blue;
+	box-shadow: inset 0 -3px @black;
 }
 
 /* Menu styling */

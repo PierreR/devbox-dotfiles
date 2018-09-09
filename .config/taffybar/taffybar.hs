@@ -21,9 +21,9 @@ taffyBlue = (0.129, 0.588, 0.953, 1)
 
 myGraphConfig =
   defaultGraphConfig
-  { graphPadding = 2
-  , graphBorderWidth = 1
-  , graphWidth = 70
+  { graphPadding = 0 -- 0
+  , graphBorderWidth = 1 -- 0
+  , graphWidth = 70 -- 75
   , graphBackgroundColor = transparent
   }
 
