@@ -7,6 +7,7 @@ import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
 import           System.Taffybar.Support.PagerHints (pagerHints)
+--import           System.Taffybar.Hooks.PagerHints (pagerHints)
 
 import           XMonad
 import           XMonad.Actions.CycleWS
@@ -167,7 +168,8 @@ myLayout = horiz ||| horiz_tiled ||| vert ||| full ||| vert_tiled
 myStartupHook = do
   -- setDefaultCursor xC_left_ptr
   setWMName "LG3D"
-  spawnOnce "stalonetray"
+  -- spawnOnce "stalonetray"
+  spawn "compton"
   spawn "albert"
 
 myManageHook = composeOne
