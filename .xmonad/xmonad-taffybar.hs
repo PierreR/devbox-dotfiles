@@ -20,6 +20,7 @@ import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Named
 import           XMonad.Layout.ZoomRow
+import           XMonad.Layout.NoBorders
 import           XMonad.Util.Cursor
 import           XMonad.Util.SpawnOnce
 
@@ -150,7 +151,7 @@ myLayout = horiz ||| horiz_tiled ||| vert ||| full ||| vert_tiled
   where
      vert_tiled = named "⊢" $ tiled
      horiz_tiled = named "⊤" $ Mirror $ tiled
-     full    = named "□" Full
+     full = named "□" Full
      horiz = named "≡" $ Mirror zoomRow
      vert = named "∥" $ zoomRow
      tiled   = Tall nmaster delta ratio
@@ -208,7 +209,7 @@ main =
       , focusedBorderColor = "#AFAF87"
       , keys               = \c -> azertyKeys c `M.union` myKeys c
       , mouseBindings      = myMouseBindings
-      , layoutHook         = avoidStruts myLayout
+      , layoutHook         = (avoidStruts . smartBorders) myLayout
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook
       , startupHook        = myStartupHook <+> ewmhDesktopsStartup
       , manageHook         = manageDocks <+> myManageHook
