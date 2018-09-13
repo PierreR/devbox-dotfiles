@@ -1,4 +1,4 @@
---
+
 -- xmonad config file.
 --
 
@@ -6,8 +6,8 @@ import qualified Data.Map                         as M
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
-import           System.Taffybar.Support.PagerHints (pagerHints)
---import           System.Taffybar.Hooks.PagerHints (pagerHints)
+-- import           System.Taffybar.Support.PagerHints (pagerHints)
+import           System.Taffybar.Hooks.PagerHints (pagerHints)
 
 import           XMonad
 import           XMonad.Actions.CycleWS
@@ -172,13 +172,22 @@ myStartupHook = do
   spawn "compton"
   spawn "albert"
 
-myManageHook = composeOne
-  [ isDialog -?> doCenterFloat
-  , title =? "Eclipse" -?> doFloat
-  , className =? "Emacs" -?> doShift "1"
+myManageHook =
+  composeOne
+  [ className =? "Emacs" -?> doShift "1"
   , className =? "Google-chrome" -?> doShift "9"
-  , isFullscreen -?> doFullFloat
-  ] <+> composeAll [ resource =? "albert" --> doCenterFloat]
+  ]
+  <>
+  composeOne
+  [ resource =? "albert" -?> doCenterFloat
+  , title =? "Eclipse" -?> doFloat
+  ]
+  <>
+  composeOne
+  [ isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_SPLASH" -?> doIgnore
+  , isFullscreen -?> (doF W.focusDown <+> doFullFloat)
+  , isDialog -?> doCenterFloat
+  ]
 
 azertyKeys conf@XConfig {modMask = modm} = M.fromList $
     ((modm, xK_semicolon), sendMessage (IncMasterN (-1))) :
