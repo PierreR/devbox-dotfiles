@@ -3,7 +3,7 @@ function ssrc () {
 }
 
 function updatenixpkgs () {
-    nix-prefetch-git https://github.com/nixos/nixpkgs.git "$1" > ~/.config/nixpkgs/.nixpkgs.json
+    nix-prefetch-git https://github.com/nixos/nixpkgs.git "$1" > .nixpkgs.json
 }
 
 function publishDevbox () {
