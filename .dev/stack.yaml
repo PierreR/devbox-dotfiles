@@ -1,4 +1,4 @@
-resolver: lts-12.21
+resolver: lts-12.24
 nix:
   enable: true
   packages:
@@ -8,8 +8,11 @@ nix:
     - ruby
     - pkgconfig
 extra-deps:
-- git: git@github.com:bartavelle/language-puppet.git
-  commit: 1c1e2e892b73a2740e98d0048b18c538b3048ef1
 - megaparsec-7.0.4
+- neat-interpolation-0.3.2.4
+- dhall-1.19.1
+- dotgen-0.4.2
+- repline-0.2.0.0
+- serialise-0.2.1.0
 system-ghc: true
 skip-ghc-check: true
