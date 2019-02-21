@@ -2,6 +2,26 @@ function ssrc () {
     git rev-list --all | GIT_PAGER=less xargs git grep "$1"
 }
 
+function languagePuppetsha256 () {
+  local ref=$(git ls-remote  https://github.com/bartavelle/language-puppet HEAD | awk '{print $1}')
+  printf "$ref\n"
+  nix-prefetch-url --unpack https://github.com/bartavelle/language-puppet/archive/$ref.tar.gz
+}
+
+function updateSystem () {
+    pushd ~/bootstrap
+    sudo make sync-system config_file=/mnt/shared/config/box.dhall
+}
+
+function updateUser () {
+    pushd ~/bootstrap
+    make user config_file=/mnt/shared/config/box.dhall
+}
+
+function ssrc () {
+    git rev-list --all | git_pager=less xargs git grep "$1"
+}
+
 function updatenixpkgs () {
     nix-prefetch-git https://github.com/nixos/nixpkgs.git "$1" > .nixpkgs.json
 }
