@@ -9,13 +9,15 @@ function languagePuppetsha256 () {
 }
 
 function updateSystem () {
-    pushd ~/bootstrap
-    sudo make sync-system config_file=/mnt/shared/config/box.dhall
+    pushd ~/bootstrap > /dev/null
+    sudo make sync-system config_file=/vagrant/config/box.dhall
+    popd > /dev/null
 }
 
 function updateUser () {
     pushd ~/bootstrap
-    make user config_file=/mnt/shared/config/box.dhall
+    make user config_file=/vagrant/config/box.dhall
+    popd
 }
 
 function ssrc () {
