@@ -1,4 +1,4 @@
-resolver: lts-12.24
+resolver: lts-13.16
 nix:
   enable: true
   packages:
@@ -8,11 +8,5 @@ nix:
     - ruby
     - pkgconfig
 extra-deps:
-- megaparsec-7.0.4
-- neat-interpolation-0.3.2.4
-- dhall-1.19.1
-- dotgen-0.4.2
-- repline-0.2.0.0
-- serialise-0.2.1.0
 system-ghc: true
 skip-ghc-check: true

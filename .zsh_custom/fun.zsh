@@ -10,7 +10,7 @@ function languagePuppetsha256 () {
 
 function updateSystem () {
     pushd ~/bootstrap > /dev/null
-    sudo make sync-system config_file=/vagrant/config/box.dhall
+    sudo make system config_file=/vagrant/config/box.dhall
     popd > /dev/null
 }
 
