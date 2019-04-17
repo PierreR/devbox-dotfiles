@@ -8,22 +8,6 @@ function languagePuppetsha256 () {
   nix-prefetch-url --unpack https://github.com/bartavelle/language-puppet/archive/$ref.tar.gz
 }
 
-function updateSystem () {
-    pushd ~/bootstrap > /dev/null
-    sudo make system config_file=/vagrant/config/box.dhall
-    popd > /dev/null
-}
-
-function updateUser () {
-    pushd ~/bootstrap
-    make user config_file=/vagrant/config/box.dhall
-    popd
-}
-
-function ssrc () {
-    git rev-list --all | git_pager=less xargs git grep "$1"
-}
-
 function updatenixpkgs () {
     nix-prefetch-git https://github.com/nixos/nixpkgs.git "$1" > .nixpkgs.json
 }
