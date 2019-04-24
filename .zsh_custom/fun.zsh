@@ -12,6 +12,19 @@ function updatenixpkgs () {
     nix-prefetch-git https://github.com/nixos/nixpkgs.git "$1" > .nixpkgs.json
 }
 
+function makeNixbox () {
+    pushd /mnt/shared
+    git clone https://github.com/nix-community/nixbox.git nixbox-vmware
+    pushd nixbox-vmware
+    sed
+    pushd scripts
+    curl -sf -o local-configuration.nix https://raw.githubusercontent.com/CIRB/devbox/master/system/cirb/local-configuration.ni
+    x
+    popd
+    popd
+    popd
+}
+
 function publishDevbox () {
     if [ -z "$1" ]
     then
